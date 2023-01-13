@@ -49,18 +49,19 @@ class HomeFragment : BaseFragment() {
         launch {
             context?.let {
                 questions = DatabaseConnection(it).getDao().getAll()
-//TODO
+                changeQuestion(view)
             }
 
         }
 
         skipButton.setOnClickListener {
-            //TODO
+            changeQuestion(view)
         }
 
         nextButton.setOnClickListener {
             if(selected != null) {
-                //TODO
+                calculate(selected!!)
+                changeQuestion(view)
             } else {
                 context?.toast(getString(R.string.please_provide_answer_toast_message))
             }
@@ -69,7 +70,7 @@ class HomeFragment : BaseFragment() {
         radioGroup = view.findViewById(R.id.question_radio)
         radioGroup.setOnCheckedChangeListener(this::radioButtonClickHandler)
 
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return view
     }
 
     private fun radioButtonClickHandler(group: RadioGroup, id: Int) {
