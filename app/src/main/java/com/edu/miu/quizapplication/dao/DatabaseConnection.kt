@@ -13,7 +13,7 @@ import com.edu.miu.quizapplication.model.Quiz
 )
 
 abstract class DatabaseConnection : RoomDatabase() {
-    abstract fun getDao():QuizDao
+    abstract fun getQuizDao():QuizDao
 
     companion object {
 

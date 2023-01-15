@@ -37,8 +37,8 @@ class HomeFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.home_fragment, container, false)
-        val skipButton = view.findViewById<Button>(R.id.btn_qstn_skip)
-        val nextButton = view.findViewById<Button>(R.id.btn_qstn_next)
+        val skipButton = view.findViewById<Button>(R.id.btn_skip)
+        val nextButton = view.findViewById<Button>(R.id.btn_next)
         question = view.findViewById(R.id.question)
         score = view.findViewById(R.id.score)
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
@@ -48,7 +48,7 @@ class HomeFragment : BaseFragment() {
         }
         launch {
             context?.let {
-                questions = DatabaseConnection(it).getDao().getAll()
+                questions = DatabaseConnection(it).getQuizDao().getAll()
                 changeQuestion(view)
             }
 

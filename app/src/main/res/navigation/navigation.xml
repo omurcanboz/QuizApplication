@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="edu.miu.quizapp.ui.SplashFragment"
+        android:name="com.edu.miu.quizapplication.fragment.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/splash_fragment" >
         <action
             android:id="@+id/action_splashFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment"
@@ -25,25 +25,25 @@
         android:id="@+id/homeFragment"
         android:name="com.edu.miu.quizapplication.fragment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/home_fragment" >
         <action
             android:id="@+id/action_homeFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="edu.miu.quizapp.ui.WelcomeFragment"
+        android:name="com.edu.miu.quizapplication.fragment.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/welcome_fragment" >
         <action
             android:id="@+id/action_welcomeFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="edu.miu.quizapp.ui.ResultFragment"
+        android:name="com.edu.miu.quizapplication.fragment.ResultFragment"
         android:label="fragment_result"
-        tools:layout="@layout/fragment_result" >
+        tools:layout="@layout/result_fragment" >
         <action
             android:id="@+id/action_resultFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -59,9 +59,9 @@
     </fragment>
     <fragment
         android:id="@+id/answerFragment"
-        android:name="edu.miu.quizapp.ui.AnswerFragment"
+        android:name="com.edu.miu.quizapplication.fragment.AnswerFragment"
         android:label="fragment_answer"
-        tools:layout="@layout/fragment_answer" >
+        tools:layout="@layout/answer_fragment" >
         <action
             android:id="@+id/action_answerFragment_to_resultFragment"
             app:destination="@id/resultFragment" />

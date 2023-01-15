@@ -11,6 +11,7 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.text.HtmlCompat
 import androidx.navigation.Navigation
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -26,7 +27,6 @@ class WelcomeFragment : BaseFragment() {
     private var nextButton : Button?=null
     private var preferencesManager : PreferencesManager?=null
 
-    private lateinit var dots: Array<TextView?>
     private lateinit var layouts: IntArray
 
     private var extendedPagerAdapter: ExtendedPagerAdapter?=null
@@ -46,12 +46,9 @@ class WelcomeFragment : BaseFragment() {
 
         layouts = intArrayOf(
             R.layout.slide,
-            R.layout.slide,
-            R.layout.slide,
             R.layout.slide
         )
 
-        addDots(0)
         colorChange()
 
         extendedPagerAdapter = ExtendedPagerAdapter(context, layouts)
@@ -71,7 +68,7 @@ class WelcomeFragment : BaseFragment() {
         return view
     }
 
-    private fun goHome(view: View?=null) {
+    private fun goHome() {
         preferencesManager!!.setFirstTime(false)
         Navigation.findNavController(requireView()).navigate(R.id.action_welcomeFragment_to_homeFragment)
     }
@@ -80,22 +77,6 @@ class WelcomeFragment : BaseFragment() {
         return viewPager!!.currentItem + i
     }
 
-    private fun addDots(current: Int) {
-        dots = arrayOfNulls(layouts.size)
-        val activeColors = resources.getIntArray(R.array.array_dot_active)
-        val inactiveColors = resources.getIntArray(R.array.array_dot_inactive)
-        layout!!.removeAllViews()
-        for (i in dots.indices) {
-            dots[i] = TextView(context)
-            dots[i]?.text = Html.fromHtml("&#8226;")
-            dots[i]?.textSize = 35F
-            dots[i]?.setTextColor(inactiveColors[current])
-            layout!!.addView(dots[i])
-        }
-
-        if(dots.isNotEmpty()) dots[current]?.setTextColor(activeColors[current])
-
-    }
 
     private fun colorChange() {
         val window: Window?=activity?.window
@@ -109,15 +90,13 @@ class WelcomeFragment : BaseFragment() {
             positionOffset: Float,
             positionOffsetPixels: Int
         ) {
-            TODO("Not yet implemented")
         }
 
         override fun onPageScrollStateChanged(state: Int) {
-            TODO("Not yet implemented")
         }
 
         override fun onPageSelected(position: Int) {
-            addDots(position)
+
 
             if(position == layouts.size-1) {
                 nextButton?.text = getString(R.string.start)

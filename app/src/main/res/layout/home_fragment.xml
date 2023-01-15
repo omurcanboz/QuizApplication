@@ -47,7 +47,7 @@
                 android:textSize="18sp"
                 android:fontFamily="sans-serif-medium"
                 android:id="@+id/question"
-                android:text="@string/_1_questions_list"
+                android:text="Dummy Question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <LinearLayout
@@ -63,25 +63,25 @@
                         android:id="@+id/radio_q1_a"
                         android:textSize="18sp"
                         android:layout_width="wrap_content"
-                        android:text="@string/true_answer"
+                        android:text="Dummy answer a"
                         android:layout_height="wrap_content"/>
                     <RadioButton
                         android:id="@+id/radio_q1_b"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
-                        android:text="@string/false_answer"/>
+                        android:text="Dummy answer b"/>
                     <RadioButton
                         android:id="@+id/radio_q1_c"
                         android:layout_width="wrap_content"
                         android:textSize="18sp"
-                        android:text="@string/i_am_not_sure"
+                        android:text="Dummy answer c"
                         android:layout_height="wrap_content"/>
                     <RadioButton
                         android:id="@+id/radio_q1_d"
                         android:layout_width="wrap_content"
                         android:textSize="18sp"
-                        android:text="@string/i_am_not_sure"
+                        android:text="Dummy answer d"
                         android:layout_height="wrap_content"/>
                 </RadioGroup>
             </LinearLayout>
@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
-                android:id="@+id/btn_qstn_skip"
+                android:id="@+id/btn_skip"
                 android:onClick="skipQuestion"
                 android:text="@string/btn_skip"
                 android:layout_marginEnd="3dp"
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
             <Button
-                android:id="@+id/btn_qstn_next"
+                android:id="@+id/btn_next"
                 android:onClick="nextQuestion"
                 android:text="@string/next"
                 android:layout_marginStart="3dp"
